@@ -1,3 +1,6 @@
 [submodule "green-client"]
 	path = green-client
 	url = git@github.com:makemegreen/webapp.git 
+[submodule "api"]
+        path = api
+        url = git@github.com:makemegreen/api.git
