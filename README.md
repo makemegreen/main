@@ -44,3 +44,6 @@ insert into property VALUES (12, 'white_meat_frequency','2018-12-27 16:06:42.434
 insert into property VALUES (13, 'yellow_garbage','2018-12-27 16:06:42.434928');
 
 
+## Activate Reco Engine
+
+Modify RECO_ENGINE in env_file and set it to 1 for enable (0 for disable). 

@@ -3,3 +3,4 @@ POSTGRES_PASSWORD=mmg_postgres_local
 POSTGRES_DB=mmg_db
 DATABASE_URL=postgresql://mmg_postgres:mmg_postgres_local@mmg_database/mmg_db
 EXPORT_TOKEN=token_dev
+RECO_ENGINE=1
