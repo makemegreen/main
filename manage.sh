@@ -13,6 +13,17 @@ fi
 CMD="$1"
 shift
 
+wait_for_api(){
+    curl --silent localhost:8080/health
+    while [ $? != 0 ];
+    do
+        echo "waiting API...";
+        sleep 5;
+        curl --silent localhost:8080/health
+    done;
+    echo "API up & running !";
+}
+
 if [[ "$CMD" == "init" ]]; then
     RUN='git submodule init;
        git submodule update;
@@ -21,6 +32,18 @@ if [[ "$CMD" == "init" ]]; then
        git submodule init;
        git submodule update;
        git submodule foreach git checkout master;'
+
+elif [[ "$CMD" == "start-app" ]]; then
+    RUN='docker-compose stop;
+    docker-compose rm -f;
+    docker-compose build;
+    docker-compose up -d;
+    wait_for_api;
+    ./manage.sh sandbox;
+    docker-compose logs -f'
+
+elif [[ "$CMD" == "stop-app" ]]; then
+    RUN='docker-compose stop;'
 
 elif [[ "$CMD" == "bash" ]]; then
     RUN='docker exec -it `docker ps | grep api | cut -d" " -f 1` bash'
