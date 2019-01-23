@@ -10,14 +10,16 @@ Initialiser le projet avec les différents repository (demander les accès avant
 
 ## Lancer l'application
 
-docker-compose build
-docker-compose up
+./manage.sh start-app
+(démarre l'application et installe les données de démo)
 
 La webapp est accessible à l'adresse suivante : [localhost:3000](http://localhost:3000)
 
-## Installer les données de démo
 
-./manage.sh sandbox
+## Stopper l'application
+
+./manage.sh stop-app
+
 
 ## Activer le moteur de recommendation (engine)
 
